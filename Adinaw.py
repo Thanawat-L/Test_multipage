@@ -114,7 +114,9 @@ def Adinaw():
         else:
             conversation_prompt = f"""
             ตีความหมายเพิ่มเติม: "{st.session_state.current_topic}"\n
-            ผู้ใช้ถามว่า: {user_input}
+            ผู้ใช้ถามว่า: {user_input} 
+            อยากให้คุณอธิบายความหมายเพิ่มเติมเกี่ยวกับคำทำนายก่อนหน้านี้ {st.session_state.chat_history}
+            โดยอธิบายให้สอดคล้องกับคำถาม {st.session_state.current_topic} อธิบายให้เข้าใจง่ายขึ้นแต่ยังไงมีมนต์ขลัง
             """
             response = conversation_agent.generate_content(conversation_prompt)
             bot_response = response.text.strip()
